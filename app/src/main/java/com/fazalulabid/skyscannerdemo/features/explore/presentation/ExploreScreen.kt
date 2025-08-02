@@ -80,7 +80,6 @@ fun ExploreScreen(
             Spacer(Modifier.height(24.dp))
 
             ImageCardSection(items = state.imageCards)
-            Spacer(Modifier.height(24.dp))
         }
     }
 }

@@ -1,13 +1,9 @@
 package com.fazalulabid.skyscannerdemo.core.navigation
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.calculateEndPadding
-import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -16,8 +12,6 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLayoutDirection
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -36,7 +30,6 @@ fun AppNavigation() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
-    val layoutDirection = LocalLayoutDirection.current
 
     val showBottomBar by remember(currentDestination?.route) {
         derivedStateOf {
@@ -46,12 +39,6 @@ fun AppNavigation() {
             }
         }
     }
-
-    val animatedBottomPadding by animateDpAsState(
-        targetValue = if (showBottomBar) 80.dp else 0.dp,
-        animationSpec = tween(durationMillis = 300),
-        label = "bottomPadding"
-    )
 
     Scaffold(
         bottomBar = {
@@ -73,19 +60,12 @@ fun AppNavigation() {
             }
         }
     ) { paddingValues ->
-        val customPaddingValues = PaddingValues(
-            start = paddingValues.calculateStartPadding(layoutDirection),
-            top = paddingValues.calculateTopPadding(),
-            end = paddingValues.calculateEndPadding(layoutDirection),
-            bottom = animatedBottomPadding
-        )
-
         NavHost(
             navController = navController,
             startDestination = Screen.Explore.route,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(customPaddingValues)
+                .padding(paddingValues)
         ) {
             navigation(
                 startDestination = Screen.ExploreMain.route,

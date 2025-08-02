@@ -67,7 +67,7 @@ fun ImageCardSection(
 ) {
     Column(
         modifier = modifier.padding(horizontal = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items.forEach { item ->
             ImageCard(item = item)

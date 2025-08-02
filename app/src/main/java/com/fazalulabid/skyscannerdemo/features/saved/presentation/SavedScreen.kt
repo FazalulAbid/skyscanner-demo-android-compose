@@ -68,7 +68,6 @@ fun SavedScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .padding(bottom = 16.dp)
     ) {
         LazyColumn(
             state = listState,

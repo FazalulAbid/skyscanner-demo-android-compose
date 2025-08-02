@@ -40,9 +40,8 @@ fun ExploreEverywhereScreen(
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = modifier.padding(vertical = 16.dp)
         ) {
-            Box(modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 16.dp)) {
+            Box(modifier = Modifier.padding(16.dp)) {
                 ExploreEveryWhereTopBar(
                     from = "Mumbai",
                     to = "Everywhere",

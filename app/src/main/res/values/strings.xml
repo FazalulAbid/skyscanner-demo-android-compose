@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Skyscanner Demo</string>
+    <string name="explore">Explore</string>
+    <string name="drops">Drops</string>
+    <string name="saved">Saved</string>
+    <string name="profile">Profile</string>
+    <string name="flights">Flights</string>
+    <string name="hotels">Hotels</string>
+    <string name="car_hire">Car Hire</string>
 </resources>

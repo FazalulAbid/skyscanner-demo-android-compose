@@ -1,15 +1,29 @@
+# Ignore generated files
 *.iml
 .gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+build/
+captures/
+.externalNativeBuild/
+.cxx/
 local.properties
+
+# Android Studio / IntelliJ
+.idea/*
+!.idea/gradle.xml
+!.idea/compiler.xml
+!.idea/kotlinc.xml
+!.idea/misc.xml
+!.idea/runConfigurations.xml
+
+# Specific ignored IDE files
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/deploymentTargetSelector.xml
+.idea/.name
+
+# MacOS
+.DS_Store

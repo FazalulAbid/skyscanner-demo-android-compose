@@ -8,8 +8,10 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val LightColorScheme = lightColorScheme(
     primary = Primary,
@@ -42,7 +44,6 @@ private val DarkColorScheme = darkColorScheme(
 @Composable
 fun SkyscannerDemoTheme(
     darkTheme: Boolean = true,
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
@@ -54,6 +55,16 @@ fun SkyscannerDemoTheme(
 
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
+    }
+
+    val systemUiController = rememberSystemUiController()
+    val useDarkIcons = false
+
+    SideEffect {
+        systemUiController.setStatusBarColor(
+            color = colorScheme.surface,
+            darkIcons = useDarkIcons
+        )
     }
 
     MaterialTheme(
